@@ -9,7 +9,7 @@
 
         protected override string Name
         {
-            get { return "Base Mapping 3"; }
+            get { return "Base Mapping C"; }
         }
 
         /// <summary>
