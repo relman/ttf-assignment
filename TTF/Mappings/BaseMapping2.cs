@@ -7,6 +7,11 @@
         {
         }
 
+        protected override string Name
+        {
+            get { return "Base Mapping 2"; }
+        }
+
         /// <summary>
         /// A && B && C => X = R
         /// </summary>

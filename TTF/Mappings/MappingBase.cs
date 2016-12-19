@@ -4,6 +4,8 @@
     {
         protected Input InData { get; private set; }
 
+        protected abstract string Name { get; }
+
         protected MappingBase(Input inData)
         {
             InData = inData;
