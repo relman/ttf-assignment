@@ -1,21 +1,23 @@
 ﻿namespace TTF.Mappings
 {
-    public class BaseMapping1 : MappingBase
+    public class BaseMapping1 : IMappingBase
     {
-        public BaseMapping1(Input input)
-            : base(input)
-        {
-        }
+        public Input InData { get; private set; }
 
-        protected override string Name
+        public virtual string Name
         {
             get { return "Base Mapping A"; }
+        }
+
+        public BaseMapping1(Input input)
+        {
+            InData = input;
         }
 
         /// <summary>
         /// A && B && !C => X = S
         /// </summary>
-        protected override bool IsAcceptable()
+        public virtual bool IsAcceptable()
         {
             return InData.A && InData.B && !InData.C;
         }
@@ -23,7 +25,7 @@
         /// <summary>
         /// X = S => Y = D + (D * E / 100)
         /// </summary>
-        protected override decimal Calc()
+        public virtual decimal Calc()
         {
             return InData.D + (InData.D * InData.E / 100);
         }
