@@ -39,6 +39,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Input.cs" />
+    <Compile Include="IOutputFactory.cs" />
     <Compile Include="Mappings\BaseMapping1.cs" />
     <Compile Include="Mappings\BaseMapping2.cs" />
     <Compile Include="Mappings\BaseMapping3.cs" />
@@ -47,6 +48,7 @@
     <Compile Include="Mappings\SpecialMapping2.cs" />
     <Compile Include="Mappings\SpecialMapping3.cs" />
     <Compile Include="Output.cs" />
+    <Compile Include="OutputFactory.cs" />
     <Compile Include="Services\ActivatorService.cs" />
     <Compile Include="Services\IActivatorService.cs" />
     <Compile Include="Services\IMappingListService.cs" />

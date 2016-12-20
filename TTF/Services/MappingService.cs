@@ -7,14 +7,16 @@ namespace TTF.Services
     {
         private readonly IMappingListService _listService;
         private readonly IActivatorService _activatorService;
+        private readonly IOutputFactory _factory;
 
-        public MappingService(IMappingListService listService, IActivatorService activatorService)
+        public MappingService(IMappingListService listService, IActivatorService activatorService, IOutputFactory factory)
         {
             _listService = listService;
             _activatorService = activatorService;
+            _factory = factory;
         }
 
-        public Output Calculate(Input input)
+        public IOutput Calculate(IInput input)
         {
             var list = new List<IMappingBase>();
             foreach (var type in _listService.GetList())
@@ -26,10 +28,10 @@ namespace TTF.Services
                 }
             }
 
-            var result = new Output();
+            var result = _factory.Create();
             foreach (var mapping in list)
             {
-                result.Items.Add(new Output.OutputItem(mapping.X, mapping.Y, mapping.Name));
+                result.AddOutputItem(mapping.X, mapping.Y, mapping.Name);
             }
             return result;
         }

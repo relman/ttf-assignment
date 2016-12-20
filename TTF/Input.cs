@@ -1,6 +1,21 @@
 ﻿namespace TTF
 {
-    public class Input
+    public interface IInput
+    {
+        bool A { get; }
+
+        bool B { get; }
+
+        bool C { get; }
+
+        int D { get; }
+
+        int E { get; }
+
+        int F { get; }
+    }
+
+    public class Input : IInput
     {
         public bool A { get; private set; }
 

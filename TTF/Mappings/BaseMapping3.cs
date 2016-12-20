@@ -11,7 +11,7 @@
         /// </summary>
         public virtual bool IsAcceptable { get { return !InData.A && InData.B && InData.C; } }
 
-        public Output.XEnum X { get { return Output.XEnum.T; } }
+        public XEnum X { get { return XEnum.T; } }
 
         /// <summary>
         /// X = T => Y = D - (D * F / 100)

@@ -2,18 +2,45 @@
 
 namespace TTF
 {
-    public class Output
+    public enum XEnum
     {
-        public List<OutputItem> Items { get; private set; }
+        Error = 0,
+        S,
+        R,
+        T
+    }
+
+    public interface IOutput
+    {
+        void AddOutputItem(XEnum x, decimal y, string mappingName);
+    }
+
+    public interface IOutputItem
+    {
+        XEnum X { get; }
+
+        decimal Y { get; }
+
+        string MappingName { get; }
+    }
+
+    public class Output : IOutput
+    {
+        public List<IOutputItem> Items { get; private set; }
 
         public bool OK { get { return Items != null && 0 < Items.Count; } }
 
         public Output()
         {
-            Items = new List<OutputItem>();
+            Items = new List<IOutputItem>();
         }
 
-        public class OutputItem
+        public void AddOutputItem(XEnum x, decimal y, string mappingName)
+        {
+            Items.Add(new OutputItem(x, y, mappingName));
+        }
+
+        public class OutputItem : IOutputItem
         {
             public XEnum X { get; private set; }
 
@@ -27,13 +54,6 @@ namespace TTF
                 Y = y;
                 MappingName = mappingName;
             }
-        }
-
-        public enum XEnum
-        {
-            S,
-            R,
-            T
         }
     }
 }

@@ -2,6 +2,6 @@
 {
     public interface IMappingService
     {
-        Output Calculate(Input input);
+        IOutput Calculate(IInput input);
     }
 }

@@ -8,7 +8,7 @@
 
         bool IsAcceptable { get; }
 
-        Output.XEnum X { get; }
+        XEnum X { get; }
 
         decimal Y { get; }
     }
