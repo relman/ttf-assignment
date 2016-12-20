@@ -3,11 +3,13 @@
     public interface IMappingBase
     {
         Input InData { get; }
-        
+
         string Name { get; }
-        
-        bool IsAcceptable();
-        
-        decimal Calc();
+
+        bool IsAcceptable { get; }
+
+        Output.XEnum X { get; }
+
+        decimal Y { get; }
     }
 }

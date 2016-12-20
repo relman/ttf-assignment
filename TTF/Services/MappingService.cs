@@ -19,7 +19,7 @@ namespace TTF.Services
             foreach (var type in _listService.GetList())
             {
                 var mapping = (IMappingBase)Activator.CreateInstance(type, input);
-                if (mapping.IsAcceptable())
+                if (mapping.IsAcceptable)
                 {
                     list.Add(mapping);
                 }
@@ -28,7 +28,7 @@ namespace TTF.Services
             var result = new Output();
             foreach (var mappingBase in list)
             {
-                result.Items.Add(new Output.OutputItem { MappingName = mappingBase.Name, Result = mappingBase.Calc() });
+                result.Items.Add(new Output.OutputItem(mappingBase.X, mappingBase.Y, mappingBase.Name));
             }
             return result;
         }

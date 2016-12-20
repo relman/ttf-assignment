@@ -15,9 +15,25 @@ namespace TTF
 
         public class OutputItem
         {
-            public decimal Result { get; set; }
+            public XEnum X { get; private set; }
 
-            public string MappingName { get; set; }
+            public decimal Y { get; private set; }
+
+            public string MappingName { get; private set; }
+
+            public OutputItem(XEnum x, decimal y, string mappingName)
+            {
+                X = x;
+                Y = y;
+                MappingName = mappingName;
+            }
+        }
+
+        public enum XEnum
+        {
+            S,
+            R,
+            T
         }
     }
 }

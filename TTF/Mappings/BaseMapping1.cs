@@ -4,30 +4,23 @@
     {
         public Input InData { get; private set; }
 
-        public virtual string Name
-        {
-            get { return "Base Mapping A"; }
-        }
-
-        public BaseMapping1(Input input)
-        {
-            InData = input;
-        }
+        public virtual string Name { get { return "Base Mapping A"; } }
 
         /// <summary>
         /// A && B && !C => X = S
         /// </summary>
-        public virtual bool IsAcceptable()
-        {
-            return InData.A && InData.B && !InData.C;
-        }
+        public virtual bool IsAcceptable { get { return InData.A && InData.B && !InData.C; } }
+
+        public Output.XEnum X { get { return Output.XEnum.S; } }
 
         /// <summary>
         /// X = S => Y = D + (D * E / 100)
         /// </summary>
-        public virtual decimal Calc()
+        public decimal Y { get { return InData.D + (InData.D * InData.E / 100); } }
+
+        public BaseMapping1(Input input)
         {
-            return InData.D + (InData.D * InData.E / 100);
+            InData = input;
         }
     }
 }

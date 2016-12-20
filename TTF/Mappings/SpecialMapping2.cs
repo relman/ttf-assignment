@@ -4,30 +4,23 @@
     {
         public Input InData { get; private set; }
 
-        public virtual string Name
-        {
-            get { return "Special Mapping 2A"; }
-        }
-
-        public SpecialMapping2(Input input)
-        {
-            InData = input;
-        }
+        public virtual string Name { get { return "Special Mapping 2A"; } }
 
         /// <summary>
         /// A && B && !C => X = T
         /// </summary>
-        public virtual bool IsAcceptable()
-        {
-            return InData.A && InData.B && !InData.C;
-        }
+        public virtual bool IsAcceptable { get { return InData.A && InData.B && !InData.C; } }
+
+        public Output.XEnum X { get { return Output.XEnum.T; } }
 
         /// <summary>
         /// X = T => Y = D - (D * F / 100)
         /// </summary>
-        public virtual decimal Calc()
+        public virtual decimal Y { get { return InData.D - (InData.D * InData.F / 100); } }
+
+        public SpecialMapping2(Input input)
         {
-            return InData.D - (InData.D * InData.F / 100);
+            InData = input;
         }
     }
 }
