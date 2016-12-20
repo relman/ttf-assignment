@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System.Collections.Generic;
 
 namespace TTF
 {
@@ -38,6 +40,7 @@ namespace TTF
 
     public interface IOutputItem
     {
+        [JsonConverter(typeof(StringEnumConverter))]
         XEnum X { get; }
 
         decimal Y { get; }
