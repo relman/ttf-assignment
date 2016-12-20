@@ -9,7 +9,17 @@ C# implementation of TTF Assignment [more here](docs/assignment.pdf)
 - Microsoft.Owin.3.0.1 - Open Web Interface for .NET
 
 # how to launch project
-To start Web service open [TTF.sln](TTF.sln) using Microsoft Visual Studio 2012 (or higher) and .NET Framework 4.5 (or higher). Set 'TTF.Web' as StartUp project. Build, Run and Enjoy
+To start Web service open [TTF.sln](TTF.sln) using Microsoft Visual Studio 2012 (or higher) and .NET Framework 4.5 (or higher). Set 'TTF.Web' as StartUp project. Build, Run, Enjoy
+
+## notes
+Visual Studio must be launched with administrator privileges. If everything is OK, you will be able to see console with text
+
+```
+Server started
+http://+:8000/
+
+Press Enter to Exit
+```
 
 # how to test endpoint
 default endpoint url is
