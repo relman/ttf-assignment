@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B1A8E99B-9DBC-4E5E-A3A3-B158AB2F599D}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{7ED41E91-30AD-41ED-A58D-4A10062213BA}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TTF</RootNamespace>
-    <AssemblyName>TTF</AssemblyName>
+    <RootNamespace>TTF.Web</RootNamespace>
+    <AssemblyName>TTF.Web</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,32 +31,25 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Input.cs" />
-    <Compile Include="IOutputFactory.cs" />
-    <Compile Include="Mappings\BaseMapping1.cs" />
-    <Compile Include="Mappings\BaseMapping2.cs" />
-    <Compile Include="Mappings\BaseMapping3.cs" />
-    <Compile Include="Mappings\IMappingBase.cs" />
-    <Compile Include="Mappings\SpecialMapping1.cs" />
-    <Compile Include="Mappings\SpecialMapping2.cs" />
-    <Compile Include="Mappings\SpecialMapping3.cs" />
-    <Compile Include="Output.cs" />
-    <Compile Include="OutputFactory.cs" />
-    <Compile Include="Services\ActivatorService.cs" />
-    <Compile Include="Services\IActivatorService.cs" />
-    <Compile Include="Services\IMappingFilterService.cs" />
-    <Compile Include="Services\IMappingListService.cs" />
-    <Compile Include="Services\IMappingService.cs" />
-    <Compile Include="Services\MappingFilterService.cs" />
-    <Compile Include="Services\MappingListService.cs" />
-    <Compile Include="Services\MappingService.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
