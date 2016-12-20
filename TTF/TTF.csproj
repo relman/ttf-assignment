@@ -52,8 +52,10 @@
     <Compile Include="OutputFactory.cs" />
     <Compile Include="Services\ActivatorService.cs" />
     <Compile Include="Services\IActivatorService.cs" />
+    <Compile Include="Services\IMappingFilterService.cs" />
     <Compile Include="Services\IMappingListService.cs" />
     <Compile Include="Services\IMappingService.cs" />
+    <Compile Include="Services\MappingFilterService.cs" />
     <Compile Include="Services\MappingListService.cs" />
     <Compile Include="Services\MappingService.cs" />
   </ItemGroup>

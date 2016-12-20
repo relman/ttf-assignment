@@ -5,6 +5,6 @@ namespace TTF.Services
 {
     public interface IMappingListService
     {
-        List<Type> GetList();
+        IList<Type> GetList();
     }
 }

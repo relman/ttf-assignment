@@ -1,39 +1,27 @@
-﻿using System.Collections.Generic;
-using TTF.Mappings;
-
-namespace TTF.Services
+﻿namespace TTF.Services
 {
     public class MappingService : IMappingService
     {
         private readonly IMappingListService _listService;
-        private readonly IActivatorService _activatorService;
+        private readonly IMappingFilterService _filterService;
         private readonly IOutputFactory _factory;
 
-        public MappingService(IMappingListService listService, IActivatorService activatorService, IOutputFactory factory)
+        public MappingService(IMappingListService listService, IMappingFilterService filterService, IOutputFactory factory)
         {
             _listService = listService;
-            _activatorService = activatorService;
+            _filterService = filterService;
             _factory = factory;
         }
 
         public IOutput Calculate(IInput input)
         {
-            var list = new List<IMappingBase>();
-            foreach (var type in _listService.GetList())
-            {
-                var mapping = (IMappingBase)_activatorService.Create(type, input);
-                if (mapping.IsAcceptable)
-                {
-                    if (mapping.IsOverride)
-                        list.Clear();
-                    list.Add(mapping);
-                }
-            }
+            var types = _listService.GetList();
+            var mappings = _filterService.Filter(types, input);
 
             var result = _factory.Create();
-            foreach (var mapping in list)
+            foreach (var m in mappings)
             {
-                result.AddOutputItem(mapping.X, mapping.Y, mapping.Name);
+                result.AddOutputItem(m.X, m.Y, m.Name);
             }
             return result;
         }

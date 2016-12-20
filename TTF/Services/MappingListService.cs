@@ -6,7 +6,7 @@ namespace TTF.Services
 {
     public class MappingListService : IMappingListService
     {
-        public List<Type> GetList()
+        public IList<Type> GetList()
         {
             return new List<Type>
             {
