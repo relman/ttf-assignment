@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using TTF.Mappings;
 
 namespace TTF.Services
@@ -7,10 +6,12 @@ namespace TTF.Services
     public class MappingService : IMappingService
     {
         private readonly IMappingListService _listService;
+        private readonly IActivatorService _activatorService;
 
-        public MappingService(IMappingListService listService)
+        public MappingService(IMappingListService listService, IActivatorService activatorService)
         {
             _listService = listService;
+            _activatorService = activatorService;
         }
 
         public Output Calculate(Input input)
@@ -18,7 +19,7 @@ namespace TTF.Services
             var list = new List<IMappingBase>();
             foreach (var type in _listService.GetList())
             {
-                var mapping = (IMappingBase)Activator.CreateInstance(type, input);
+                var mapping = (IMappingBase)_activatorService.Create(type, input);
                 if (mapping.IsAcceptable)
                 {
                     list.Add(mapping);
@@ -26,9 +27,9 @@ namespace TTF.Services
             }
 
             var result = new Output();
-            foreach (var mappingBase in list)
+            foreach (var mapping in list)
             {
-                result.Items.Add(new Output.OutputItem(mappingBase.X, mappingBase.Y, mappingBase.Name));
+                result.Items.Add(new Output.OutputItem(mapping.X, mapping.Y, mapping.Name));
             }
             return result;
         }

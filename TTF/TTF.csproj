@@ -47,6 +47,8 @@
     <Compile Include="Mappings\SpecialMapping2.cs" />
     <Compile Include="Mappings\SpecialMapping3.cs" />
     <Compile Include="Output.cs" />
+    <Compile Include="Services\ActivatorService.cs" />
+    <Compile Include="Services\IActivatorService.cs" />
     <Compile Include="Services\IMappingListService.cs" />
     <Compile Include="Services\IMappingService.cs" />
     <Compile Include="Services\MappingListService.cs" />
