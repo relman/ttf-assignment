@@ -18,6 +18,8 @@
         /// </summary>
         public decimal Y { get { return InData.D + (InData.D * InData.E / 100); } }
 
+        public bool IsOverride { get { return false; } }
+
         public BaseMapping1(Input input)
         {
             InData = input;

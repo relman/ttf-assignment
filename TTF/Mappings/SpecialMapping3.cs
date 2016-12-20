@@ -18,6 +18,8 @@
         /// </summary>
         public virtual decimal Y { get { return InData.F + InData.D + (InData.D * InData.E / 100); } }
 
+        public bool IsOverride { get { return false; } }
+
         public SpecialMapping3(Input input)
         {
             InData = input;

@@ -24,6 +24,8 @@ namespace TTF.Services
                 var mapping = (IMappingBase)_activatorService.Create(type, input);
                 if (mapping.IsAcceptable)
                 {
+                    if (mapping.IsOverride)
+                        list.Clear();
                     list.Add(mapping);
                 }
             }
