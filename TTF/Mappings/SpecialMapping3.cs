@@ -16,7 +16,7 @@
         /// <summary>
         /// X = S => Y = F + D + (D * E / 100)
         /// </summary>
-        public virtual decimal Y { get { return InData.F + InData.D + (InData.D * InData.E / 100); } }
+        public virtual decimal Y { get { return InData.F + InData.D + (InData.D * InData.E / 100.0M); } }
 
         public bool IsOverride { get { return false; } }
 

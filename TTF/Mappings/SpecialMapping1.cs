@@ -4,7 +4,7 @@
     {
         public Input InData { get; private set; }
 
-        public virtual string Name { get { return "Specialized Mapping 1"; } }
+        public virtual string Name { get { return "Special Mapping 1"; } }
 
         /// <summary>
         /// A && B && C => X = R
@@ -16,7 +16,7 @@
         /// <summary>
         /// X = R => Y = 2D + (D * E / 100)
         /// </summary>
-        public virtual decimal Y { get { return 2 * InData.D + (InData.D * InData.E / 100); } }
+        public virtual decimal Y { get { return 2 * InData.D + (InData.D * InData.E / 100.0M); } }
 
         public bool IsOverride { get { return false; } }
 

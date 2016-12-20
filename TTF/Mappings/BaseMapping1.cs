@@ -16,7 +16,7 @@
         /// <summary>
         /// X = S => Y = D + (D * E / 100)
         /// </summary>
-        public decimal Y { get { return InData.D + (InData.D * InData.E / 100); } }
+        public decimal Y { get { return InData.D + (InData.D * InData.E / 100.0M); } }
 
         public bool IsOverride { get { return false; } }
 

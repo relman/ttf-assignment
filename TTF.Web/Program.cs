@@ -12,7 +12,7 @@ namespace TTF.Web
             // Start OWIN host 
             using (WebApp.Start<Startup>(baseAddress))
             {
-                Console.WriteLine("Server started. Press Enter to Exit");
+                Console.WriteLine("Server started\n{0}\n\nPress Enter to Exit", baseAddress);
                 Console.ReadLine();
             }
         }
