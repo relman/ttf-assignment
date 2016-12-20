@@ -1,4 +1,5 @@
-﻿using Owin;
+﻿using Autofac.Integration.WebApi;
+using Owin;
 using System.Web.Http;
 
 namespace TTF.Web
@@ -14,6 +15,13 @@ namespace TTF.Web
                 defaults: new { id = RouteParameter.Optional }
             );
             config.MapHttpAttributeRoutes();
+
+            var builder = AutofacConfig.RegisterComponents();
+            var container = builder.Build();
+            config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
+            appBuilder.UseAutofacMiddleware(container);
+            appBuilder.UseAutofacWebApi(config);
+
             appBuilder.UseWebApi(config);
         }
     }

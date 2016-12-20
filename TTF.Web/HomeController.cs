@@ -8,6 +8,13 @@ namespace TTF.Web
 {
     public class HomeController : ApiController
     {
+        private readonly IMappingService _service;
+
+        public HomeController(IMappingService service)
+        {
+            _service = service;
+        }
+
         [HttpGet]
         [Route("~/")]
         public HttpResponseMessage Index()
@@ -22,12 +29,7 @@ namespace TTF.Web
         [Route("~/")]
         public HttpResponseMessage Calc(Input input)
         {
-            var listService = new MappingListService();
-            var activatorService = new ActivatorService();
-            var filterService = new MappingFilterService(activatorService);
-            var factory = new OutputFactory();
-            var service = new MappingService(listService, filterService, factory);
-            var output = service.Calculate(input);
+            var output = _service.Calculate(input);
             var response = new HttpResponseMessage();
             response.Content = new StringContent(JsonConvert.SerializeObject(output));
             response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
