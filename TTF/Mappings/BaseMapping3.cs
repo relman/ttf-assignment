@@ -2,7 +2,7 @@
 {
     public class BaseMapping3 : IMappingBase
     {
-        public Input InData { get; private set; }
+        public IInput InData { get; private set; }
 
         public virtual string Name { get { return "Base Mapping C"; } }
 
@@ -20,7 +20,7 @@
 
         public bool IsOverride { get { return false; } }
 
-        public BaseMapping3(Input input)
+        public BaseMapping3(IInput input)
         {
             InData = input;
         }

@@ -2,7 +2,7 @@
 {
     public class SpecialMapping2 : IMappingBase
     {
-        public Input InData { get; private set; }
+        public IInput InData { get; private set; }
 
         public virtual string Name { get { return "Special Mapping 2A"; } }
 
@@ -20,7 +20,7 @@
 
         public bool IsOverride { get { return true; } }
 
-        public SpecialMapping2(Input input)
+        public SpecialMapping2(IInput input)
         {
             InData = input;
         }

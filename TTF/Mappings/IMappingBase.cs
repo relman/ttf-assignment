@@ -5,7 +5,7 @@
         /// <summary>
         /// Input Data
         /// </summary>
-        Input InData { get; }
+        IInput InData { get; }
 
         /// <summary>
         /// Mapping Name
