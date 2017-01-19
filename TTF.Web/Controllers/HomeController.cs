@@ -4,7 +4,7 @@ using System.Net.Http.Headers;
 using System.Web.Http;
 using TTF.Services;
 
-namespace TTF.Web
+namespace TTF.Web.Controllers
 {
     public class HomeController : ApiController
     {
