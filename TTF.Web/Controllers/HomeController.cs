@@ -20,7 +20,7 @@ namespace TTF.Web.Controllers
         [Route("~/")]
         public HttpResponseMessage Index()
         {
-            var response = new HttpResponseMessage();
+            var response = _factory.Create();
             response.Content = new StringContent("Service Started. You can POST data");
             response.Content.Headers.ContentType = new MediaTypeHeaderValue("text/html");
             return response;

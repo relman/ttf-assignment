@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using TTF.Services;
 using TTF.Web.Controllers;
 
@@ -20,6 +21,8 @@ namespace TTF.Web.Tests
                 .Returns(responseMessage.Object);
             var result = controller.Index();
             Assert.IsNotNull(result);
+            Assert.IsNotNull(result.Content);
+            Assert.AreEqual(new MediaTypeHeaderValue("text/html"), result.Content.Headers.ContentType);
             factory.Verify(v => v.Create(), Times.Once);
         }
     }
