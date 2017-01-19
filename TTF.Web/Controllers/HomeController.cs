@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System.Net.Http;
+﻿using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Web.Http;
 using TTF.Services;
@@ -9,10 +8,12 @@ namespace TTF.Web.Controllers
     public class HomeController : ApiController
     {
         private readonly IMappingService _service;
+        private readonly IResponseMessageFactory _factory;
 
-        public HomeController(IMappingService service)
+        public HomeController(IMappingService service, IResponseMessageFactory factory)
         {
             _service = service;
+            _factory = factory;
         }
 
         [HttpGet]
@@ -31,7 +32,7 @@ namespace TTF.Web.Controllers
         {
             var output = _service.Calculate(input);
             var response = new HttpResponseMessage();
-            response.Content = new StringContent(JsonConvert.SerializeObject(output));
+            response.Content = new StringContent(output.ToJson());
             response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
             return response;
         }
