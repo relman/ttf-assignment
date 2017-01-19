@@ -59,6 +59,7 @@
     <Compile Include="MappingServiceTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MappingFilterServiceTest.cs" />
+    <Compile Include="OutputTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

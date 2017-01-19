@@ -19,6 +19,8 @@ namespace TTF
         bool OK { get; }
 
         void AddOutputItem(XEnum x, decimal y, string mappingName);
+
+        string ToJson();
     }
 
     public class Output : IOutput
@@ -35,6 +37,11 @@ namespace TTF
         public void AddOutputItem(XEnum x, decimal y, string mappingName)
         {
             Items.Add(new OutputItem(x, y, mappingName));
+        }
+
+        public string ToJson()
+        {
+            throw new System.NotImplementedException();
         }
     }
 
