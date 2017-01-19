@@ -31,7 +31,7 @@ namespace TTF.Web.Controllers
         public HttpResponseMessage Calc(Input input)
         {
             var output = _service.Calculate(input);
-            var response = new HttpResponseMessage();
+            var response = _factory.Create();
             response.Content = new StringContent(output.ToJson());
             response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
             return response;
