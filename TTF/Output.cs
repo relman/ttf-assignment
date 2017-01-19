@@ -41,7 +41,7 @@ namespace TTF
 
         public string ToJson()
         {
-            throw new System.NotImplementedException();
+            return JsonConvert.SerializeObject(this);
         }
     }
 
